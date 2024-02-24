@@ -33,6 +33,8 @@ public partial class LetsConnectDbContext : DbContext
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.UserId).HasName("PK__Users__1788CC4C3CE30CCB");
+
+            entity.Property(e => e.IsDelete).HasDefaultValue(false);
         });
 
         modelBuilder.Entity<UserPhone>(entity =>

@@ -41,6 +41,17 @@ public partial class User
     [Unicode(false)]
     public string? PhoneNo { get; set; }
 
+    [Column("DOB")]
+    public DateOnly? Dob { get; set; }
+
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? Gender { get; set; }
+
+    public DateOnly? CreationDate { get; set; }
+
+    public bool? IsDelete { get; set; }
+
     [InverseProperty("User")]
     public virtual ICollection<UserPhone> UserPhones { get; set; } = new List<UserPhone>();
 
