@@ -48,7 +48,8 @@ public partial class User
     [Unicode(false)]
     public string? Gender { get; set; }
 
-    public DateOnly? CreationDate { get; set; }
+    [Column(TypeName = "datetime")]
+    public DateTime? CreationDate { get; set; }
 
     public bool? IsDelete { get; set; }
 
