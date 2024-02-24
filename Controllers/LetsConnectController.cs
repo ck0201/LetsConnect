@@ -1,6 +1,6 @@
-﻿using LetsConnect.Repository;
+﻿using LetsConnect.Interfaces.Services;
+using LetsConnect.Models.UserRegistration;
 using Microsoft.AspNetCore.Mvc;
-using System.Data;
 
 namespace LetsConnect.Controllers
 {
@@ -8,17 +8,16 @@ namespace LetsConnect.Controllers
     [ApiController]
     public class LetsConnectController : ControllerBase
     {
-        private readonly LetsConnectDbContext _letsConnectDbContext;
-        public LetsConnectController(LetsConnectDbContext letsConnectDbContext)
+        private readonly IUserRegistrationService _userRegistrationService;
+        public LetsConnectController(IUserRegistrationService userRegistrationService)
         {
-            _letsConnectDbContext = letsConnectDbContext;
+            _userRegistrationService = userRegistrationService;
         }
-        [HttpGet("GetEmployees")]
-        public IActionResult GetUsers()
+        [HttpPost("GetEmployees")]
+        public async Task<IActionResult> CreateUserAsync(UserDetails userDetails)
         {
-            var query = (from user in _letsConnectDbContext.Users
-                               select user).ToList();
-            return Ok(query);
+            bool IsSaved = await _userRegistrationService.CreateUser(userDetails);
+            return Ok(IsSaved);
         }
     }
 }

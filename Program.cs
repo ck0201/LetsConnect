@@ -1,3 +1,5 @@
+using LetsConnect.Implementations.Services;
+using LetsConnect.Interfaces.Services;
 using LetsConnect.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-
+builder.Services.AddScoped<IUserRegistrationService, UserRegistrationService>();
 // Register DbContext
 var connectionString = builder.Configuration.GetConnectionString("EmployeeConString");
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
