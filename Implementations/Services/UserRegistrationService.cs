@@ -25,7 +25,7 @@ namespace LetsConnect.Implementations.Services
                 Email = userDetails.Email,
                 PhoneNo = userDetails.PhoneNo,
                 MiddleName = userDetails.MiddleName,
-                CreationDate = DateOnly.FromDateTime(DateTime.Today),
+                CreationDate = DateTime.Now,
                 Gender = userDetails.Gender,
                 //Dob = userDetails.DOB,
             };
