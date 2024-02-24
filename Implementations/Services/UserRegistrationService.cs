@@ -25,6 +25,9 @@ namespace LetsConnect.Implementations.Services
                 Email = userDetails.Email,
                 PhoneNo = userDetails.PhoneNo,
                 MiddleName = userDetails.MiddleName,
+                CreationDate = DateOnly.FromDateTime(DateTime.Today),
+                Gender = userDetails.Gender,
+                //Dob = userDetails.DOB,
             };
             await _letsConnectDbContext.AddAsync(userData);
             await _letsConnectDbContext.SaveChangesAsync();

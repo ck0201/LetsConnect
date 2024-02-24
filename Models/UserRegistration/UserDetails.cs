@@ -13,6 +13,8 @@ namespace LetsConnect.Models.UserRegistration
 			LastName = string.Empty;
 			Email = string.Empty;
 			PhoneNo = string.Empty;
+            //DOB = DateOnly.FromDateTime(DateTime.Today);
+            Gender = string.Empty;
 		}
         [Required(ErrorMessage = "The User Id field is required.")]
         public string UserLoginId { get; set; }
@@ -37,5 +39,9 @@ namespace LetsConnect.Models.UserRegistration
         [Required(ErrorMessage = "The Phone field is required.")]
         [StringLength(15, ErrorMessage = "The Phone field must be a string with a maximum length of 15.")]
         public string PhoneNo { get; set; }
+
+        public string Gender { get; set; }
+        public bool IsDelete { get; set; }
+        //public DateOnly DOB { get; set; }
     }
 }
